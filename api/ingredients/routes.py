@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_restplus import abort
+
+from config import logger
 from errors import RecipeBeingUsed
 from api.ingredients.service import IngredientService
 
@@ -13,6 +15,7 @@ def get_ingredient_list_by_category(category):
         values = service.get_ingredient_list_by_category(category)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -23,6 +26,7 @@ def create_ingredient():
         values = service.create_ingredient(data)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -33,8 +37,10 @@ def update_ingredient():
         values = service.update_ingredient(data)
         return jsonify(values)
     except RecipeBeingUsed as ex:
-        abort(str(ex))
+        logger.warn("Recipe in use, request: {0}, error: {1}".format(request.full_path, str(ex)))
+        abort(400, str(ex))
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -44,6 +50,8 @@ def delete_recipe(id):
         values = service.delete_ingredient(id)
         return jsonify(values)
     except RecipeBeingUsed as ex:
-        abort(str(ex))
+        logger.error("Recipe in use, request: {0}, error: {1}".format(request.full_path, str(ex)))
+        abort(400, str(ex))
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))

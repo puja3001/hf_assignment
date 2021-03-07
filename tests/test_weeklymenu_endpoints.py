@@ -19,16 +19,16 @@ class TestWeeklyMenuClass:
         clean_db()
 
     def test_get_menu_by_category(self, app, client):
-        res = client.get(self.URL_PREFIX + '/list/1')
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'))
         assert res.status_code == 401
 
         headers = {'x-api-key': 'test'}
-        res = client.get(self.URL_PREFIX + '/list/1', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 1
 
-        res = client.get(self.URL_PREFIX + '/list/4', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/4'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 0
@@ -39,7 +39,7 @@ class TestWeeklyMenuClass:
             "categoryId": 2
         }
         headers = {'x-api-key': 'test'}
-        res = client.post(self.URL_PREFIX + '/create', mimetype="application/json", data=json.dumps(data),
+        res = client.post("{0}{1}".format(self.URL_PREFIX, '/create'), mimetype="application/json", data=json.dumps(data),
                           headers=headers)
         response = res.get_json()
         menu = WeeklyMenu.get_by_id(response['menuId'])
@@ -57,7 +57,7 @@ class TestWeeklyMenuClass:
             "menuId": 1,
             "availableRecipes": '1,2,3'
         }
-        res = client.put(self.URL_PREFIX + '/update', mimetype="application/json", data=json.dumps(data), headers=headers)
+        res = client.put("{0}{1}".format(self.URL_PREFIX, '/update'), mimetype="application/json", data=json.dumps(data), headers=headers)
         response = res.get_json()
         menu = WeeklyMenu.get_by_id(1)
         assert res.status_code == 200
@@ -68,13 +68,13 @@ class TestWeeklyMenuClass:
             "menuId": '1',
             "availableRecipes": [4,5]
         }
-        res = client.put(self.URL_PREFIX + '/update', mimetype="application/json", data=json.dumps(data),
+        res = client.put("{0}{1}".format(self.URL_PREFIX, '/update'), mimetype="application/json", data=json.dumps(data),
                           headers=headers)
         assert res.status_code == 400
 
     def test_delete_weeklymenu(self, app, client):
         headers = {'x-api-key': 'test'}
-        res = client.delete(self.URL_PREFIX + '/1', mimetype="application/json", headers=headers)
+        res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
         assert res.status_code == 200
         response = res.get_json()
         assert response['message'] == "Successfully deleted weekly menu"

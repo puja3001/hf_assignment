@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "61c197d1-2c41-459c-b7cd-127a0fd2fc84",
+		"name": "WeeklyMenu Manager - hf_assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "get recipe list by categoryId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/list/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"list",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get recipe by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get recipe by id 401",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"allergens\": \"Gluten,Soy,Peanuts\",\n    \"category\": \"Meat & Veggies\",\n    \"categoryId\": 1,\n    \"description\": \"This magic recipe will fill your home with fragrant spices and transport you to Southeast Asia. From the spiced coconut soup base to the tender chicken pieces and moreish noodles, every mouthful will have you feeling good inside and out\",\n    \"difficultyLevel\": \"Easy\",\n    \"ingredients\": [\n        {\n            \"isDeliverable\": true,\n            \"ingredientId\": 1,\n            \"quantity\": \"2 clove\",\n            \"servesFour\": false\n        }\n    ],\n    \"instructions\": [\n        {\n            \"description\": \"Finely chop the garlic. De-stem and very finely slice the makrut lime leaves. Slice the carrot (unpeeled) into thin batons. Thinly slice the capsicum. Roughly chop the Asian greens. Roughly chop the coriander.\",\n            \"stepNo\": 1\n        },\n        {\n            \"description\": \"Thinly slice the chicken tenderloins into 1cm strips and season generously with salt and pepper. In a large frying pan, heat a drizzle of olive oil over a medium-high heat. When the oil is hot, cook the chicken until browned and cooked through, 5-6 minutes. Transfer to a plate. TIP: Chicken is cooked through when it's no longer pink in the middle.\",\n            \"stepNo\": 2\n        },\n        {\n            \"description\": \"Return the frying pan to a medium-high heat with a drizzle of olive oil. Add the carrot and red capsicum and cook, tossing, until just softened, 3-4 minutes. Add another drizzle of olive oil with the Southeast Asian spice blend (see ingredients), garlic and makrut lime and cook until fragrant, 1 minute.\",\n            \"stepNo\": 3\n        },\n        {\n            \"description\": \"Add the coconut milk, water, soy sauce and brown sugar and stir to combine. Bring to a boil.\",\n            \"stepNo\": 4\n        },\n        {\n            \"description\": \"Add the Asian greens and the udon noodles to the broth and stir to combine. Cook, stirring to separate the noodles, until heated though and the greens have wilted, 2-3 minutes. Add the chicken and any resting juices to the pan and stir until heated through, 1 minute. Season to taste.\",\n            \"stepNo\": 5\n        },\n        {\n            \"description\": \"Roughly chop the coriander. Divide the noodles, veggies and chicken between bowls. Spoon over the chicken coconut soup and top with the coriander and crushed peanuts.\",\n            \"stepNo\": 6\n        }\n    ],\n    \"name\": \"Southeast Asian Chicken Coconut Soup with Makrut Lime & Noodles\",\n    \"nutritionalValues\": {\n        \"carbohydrates\": \"57.3 g\",\n        \"energy\": \"4316 KJ\",\n        \"fat\": \"53.5 g\",\n        \"fibre\": \"0 g\",\n        \"protein\": \"62.4 g\",\n        \"saturates\": \"27.6 g\",\n        \"sodium\": \"1702 mg\",\n        \"sugar\": \"20.3 g\"\n    },\n    \"prepTime\": \"35 minutes\",\n    \"tags\": \"New\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update recipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"allergens\": \"Gluten,Soy,Peanuts\",\n    \"categoryId\": 1,\n    \"description\": \"This magic recipe will fill your home with fragrant spices and transport you to Southeast Asia. From the spiced coconut soup base to the tender chicken pieces and moreish noodles, every mouthful will have you feeling good inside and out\",\n    \"difficultyLevel\": \"Easy\",\n    \"ingredients\": [\n        {\n        \t\"ingredientId\": 1,\n            \"isDeliverable\": true,\n            \"quantity\": \"2 clove\",\n            \"servesFour\": false\n        }\n    ],\n    \"instructions\": [\n        {\n            \"description\": \"Finely chop the garlic. De-stem and very finely slice the makrut lime leaves. Slice the carrot (unpeeled) into thin batons. Thinly slice the capsicum. Roughly chop the Asian greens. Roughly chop the coriander.\",\n            \"recipeId\": 53,\n            \"stepId\": 203,\n            \"stepNo\": 1\n        },\n        {\n            \"description\": \"Thinly slice the chicken tenderloins into 1cm strips and season generously with salt and pepper. In a large frying pan, heat a drizzle of olive oil over a medium-high heat. When the oil is hot, cook the chicken until browned and cooked through, 5-6 minutes. Transfer to a plate. TIP: Chicken is cooked through when it's no longer pink in the middle.\",\n            \"recipeId\": 53,\n            \"stepId\": 204,\n            \"stepNo\": 2\n        },\n        {\n            \"description\": \"Return the frying pan to a medium-high heat with a drizzle of olive oil. Add the carrot and red capsicum and cook, tossing, until just softened, 3-4 minutes. Add another drizzle of olive oil with the Southeast Asian spice blend (see ingredients), garlic and makrut lime and cook until fragrant, 1 minute.\",\n            \"recipeId\": 53,\n            \"stepId\": 205,\n            \"stepNo\": 3\n        },\n        {\n            \"description\": \"Add the coconut milk, water, soy sauce and brown sugar and stir to combine. Bring to a boil.\",\n            \"recipeId\": 53,\n            \"stepId\": 206,\n            \"stepNo\": 4\n        },\n        {\n            \"description\": \"Add the Asian greens and the udon noodles to the broth and stir to combine. Cook, stirring to separate the noodles, until heated though and the greens have wilted, 2-3 minutes. Add the chicken and any resting juices to the pan and stir until heated through, 1 minute. Season to taste.\",\n            \"recipeId\": 53,\n            \"stepId\": 207,\n            \"stepNo\": 5\n        },\n        {\n            \"description\": \"Roughly chop the coriander. Divide the noodles, veggies and chicken between bowls. Spoon over the chicken coconut soup and top with the coriander and crushed peanuts.\",\n            \"recipeId\": 53,\n            \"stepId\": 208,\n            \"stepNo\": 6\n        }\n    ],\n    \"name\": \"Test Recipe\",\n    \"nutritionalValues\": {\n        \"carbohydrates\": \"57.3 g\",\n        \"energy\": \"4316 KJ\",\n        \"fat\": \"53.5 g\",\n        \"fibre\": \"0 g\",\n        \"nutritionId\": 40,\n        \"protein\": \"62.4 g\",\n        \"recipeId\": 53,\n        \"saturates\": \"27.6 g\",\n        \"sodium\": \"1702 mg\",\n        \"sugar\": \"20.3 g\"\n    },\n    \"prepTime\": \"35 minutes\",\n    \"recipeId\": 53,\n    \"tags\": \"New test recipe\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete recipe by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/recipes/53",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"53"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "get ingredients by category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/list/dairy",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"list",
+								"dairy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create ingredient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"apple\",\n\t\"category\": \"fruits\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ingredient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"category\": \"dairy products\",\n        \"ingredientId\": 88,\n        \"name\": \"bread\"\n    }"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ingredient 400",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"category\": \"root veggies\",\n        \"ingredientId\": 1,\n        \"name\": \"onion\"\n    }"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"update"
+							]
+						},
+						"description": "It doesnt allow to update ingredient if being used in recipes"
+					},
+					"response": []
+				},
+				{
+					"name": "delete ingredient by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete ingredient by id 400",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/ingredients/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"ingredients",
+								"1"
+							]
+						},
+						"description": "It doesnt allow to delete ingredient if being used in recipes"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b1e7a8f3-9b29-43d8-a688-23a93fc6014e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e48e2ba-d0f8-42b7-8c07-365697a13099",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "WeeklyMenus",
+			"item": [
+				{
+					"name": "get weekly menu list by categoryId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/list/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"list",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get weekly menu by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create weekly menu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"weekStartDate\": \"2021-03-27\",\n\t\"categoryId\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update weekly menu 400",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"weekStartDate\": \"2021-03-27\",\n\t\"categoryId\": \"2\",\n\t\"availableRecipes\": \"1,4,7\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"update"
+							]
+						},
+						"description": "Returns error if certain recipes are not found in the recipe list"
+					},
+					"response": []
+				},
+				{
+					"name": "update weekly menu",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"weekStartDate\": \"2021-03-27\",\n\t\"categoryId\": \"2\",\n\t\"availableRecipes\": \"1,2,13\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete weekly menu by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/weeklymenus/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"weeklymenus",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Reviews",
+			"item": [
+				{
+					"name": "get reviews for a menu",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reviews/menu/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"menu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get reviews for a recipe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reviews/recipe/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"recipe",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comments\": \"Health & tasy\",\n\t\"recipeId\": \"2\",\n\t\"rating\": 5\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reviews/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"comments\": \"Very healthy menu\",\n        \"menuId\": 1,\n        \"rating\": 3,\n        \"recipeId\": 1,\n        \"reviewId\": 1\n    }"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reviews/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete review by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/v1/reviews/9",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c75497af-4bf4-4382-89ae-da11a93acfe5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8dce1333-6dba-4b89-a946-966d619d05c9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

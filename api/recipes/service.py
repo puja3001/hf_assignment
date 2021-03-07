@@ -70,7 +70,11 @@ class RecipeService:
                     'recipeId': recipe.get_id(),
                     **ingredient
                 }
-                RecipeIngredients(**recipe_ingredients).save(force_insert=True)
+                hasRows = RecipeIngredients.select().where(RecipeIngredients.recipeId == recipe.get_id(), RecipeIngredients.ingredientId == int(ingredient['ingredientId'])).count()
+                if hasRows == 0:
+                    RecipeIngredients(**recipe_ingredients).save(force_insert=True)
+                else:
+                    RecipeIngredients(**recipe_ingredients).save()
 
             # updating recipe steps
             for step in payload.instructions:

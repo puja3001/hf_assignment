@@ -108,7 +108,7 @@ class UserReviews(BaseModel):
 MODELS = (
 Ingredients, Category, Recipes, RecipeNutritionalValues, RecipeSteps, RecipeIngredients, WeeklyMenu, UserReviews)
 
-if os.environ.get("env") == "test":
+if os.environ.get("ENV") == "test":
     database = SqliteExtDatabase(":memory:")
     database_proxy.initialize(database)
     database_proxy.bind(MODELS, bind_refs=False, bind_backrefs=False)

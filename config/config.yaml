@@ -11,6 +11,15 @@ dev:
       password: ''
       host: 'localhost'
 
+prod:
+  apiKey: zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ
+  max_no_of_recipes: 3
+  db_connection:
+      database: ''
+      user: ''
+      password: ''
+      host: ''
+
 test:
   apiKey: test
   max_no_of_recipes: 1

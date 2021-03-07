@@ -22,6 +22,7 @@ def get_recipe_by_id(id):
         values = service.get_recipe_by_id(id)
         return jsonify(values)
     except Exception as ex:
+        print(str(ex))
         abort(400, "Error occurred in operation" + str(ex))
 
 

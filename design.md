@@ -21,24 +21,24 @@ API design:
 ===========
 Endpoints and its major responsibilities below.
 1. Recipes
-    /api/v1/recipes/create - creating & updating recipe
-    /api/v1/recipes/delete/{id} - deleting recipe by id
-    /api/v1/recipes/list/{categoryId} - listing all recipes by category
+    - **/api/v1/recipes/create** - creating & updating recipe
+    - **/api/v1/recipes/delete/{id}** - deleting recipe by id
+    - **/api/v1/recipes/list/{categoryId}** - listing all recipes by category
 2. Ingredients
-    /api/v1/ingredients/create - creating ingredient
-    /api/v1/ingredients/update - updating ingredient
-    /api/v1/ingredients/delete/{id} - deleting ingredient by id
-    /api/v1/ingredients/list/{category} - listing all ingredients by category name
+    - **/api/v1/ingredients/create** - creating ingredient
+    - **/api/v1/ingredients/update** - updating ingredient
+    - **/api/v1/ingredients/delete/{id}** - deleting ingredient by id
+    - **/api/v1/ingredients/list/{category}** - listing all ingredients by category name
 3. WeeklyMenus
-    /api/v1/weeklymenus/create - creating weekly menu
-    /api/v1/weeklymenus/update - updating weekly menu
-    /api/v1/weeklymenus/delete/{id} - deleting weekly menu by id
-    /api/v1/weeklymenus/list/{categoryId} - listing all weekly menus by category
+    - **/api/v1/weeklymenus/create** - creating weekly menu
+    - **/api/v1/weeklymenus/update** - updating weekly menu
+    - **/api/v1/weeklymenus/delete/{id}** - deleting weekly menu by id
+    - **/api/v1/weeklymenus/list/{categoryId}** - listing all weekly menus by category
 4. User Reviews
-    /api/v1/reviews/create - creating and updating review
-    /api/v1/reviews/delete/{id} - deleting review by id
-    /api/v1/reviews/menu/{menuId} - listing all reviews for a menu
-    /api/v1/reviews/recipe/{recipeId} - listing all reviews for a recipe
+    - **/api/v1/reviews/create** - creating and updating review
+    - **/api/v1/reviews/delete/{id}** - deleting review by id
+    - **/api/v1/reviews/menu/{menuId}** - listing all reviews for a menu
+    - **/api/v1/reviews/recipe/{recipeId}** - listing all reviews for a recipe
 
 To run locally:
 
@@ -57,6 +57,9 @@ Or with docker:
 
 To run tests:
 ==============
+**Pre-requisites**
+1. Python version 3.7+
+2. pip3
 ```
-Run -> sh run_test.sh
+Run -> sh run_tests.sh
 ```

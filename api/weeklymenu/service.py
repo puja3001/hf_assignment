@@ -48,7 +48,7 @@ class WeeklyMenuService:
         week_start_date = datetime.datetime.strptime(payload.weekStartDate, '%Y-%m-%d')
         week_name = str(week_start_date.year) + "-W" + str(week_start_date.isocalendar()[1])
 
-        # fetching previous week recipes
+        # fetching previous week recipes from same category
         last_week_start = week_start_date - datetime.timedelta(days=7)
         query = WeeklyMenu.select().where(
             WeeklyMenu.weekStartDate == last_week_start and WeeklyMenu.categoryId == payload.categoryId).namedtuples()
@@ -59,7 +59,7 @@ class WeeklyMenuService:
 
         # assigning random x recipes to current menu from given category and which were not in previous week
         recipes = Recipes.select(Recipes.recipeId).where(
-            Recipes.recipeId.not_in(previous_week_recipes and Recipes.categoryId == payload.categoryId)) \
+            Recipes.recipeId.not_in(previous_week_recipes), Recipes.categoryId == payload.categoryId) \
             .order_by(fn.Random()).limit(self.MAX_RECIPES_PER_MENU)
         available_recipes = []
         for recipe in recipes:

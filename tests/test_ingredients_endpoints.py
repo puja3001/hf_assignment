@@ -60,7 +60,7 @@ class TestIngredientClass:
         response = res.get_json()
         assert response['message'] == "Successfully updated ingredient"
         ingredient = Ingredients.get_by_id(created.ingredientId)
-        assert ingredient.category == "Farm-fruits"
+        assert ingredient.category == "farm-fruits"
 
         used_ingredient = RecipeIngredients.select(RecipeIngredients.ingredientId).limit(1)
         for rows in used_ingredient:

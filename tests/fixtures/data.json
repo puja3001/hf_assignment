@@ -16,47 +16,47 @@
   "ingredients": [
     {
       "name": "Onions",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "garlic",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "carrot",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "makrut lime leaves",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "Asian greens",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "coconut milk",
-      "category": "Dairy"
+      "category": "dairy"
     },
     {
       "name": "coriander",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "udon noodles",
-      "category": "Noodles"
+      "category": "noodles"
     },
     {
       "name": "capsicum",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "mint leaves",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "lime",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "chicken thighs",
@@ -64,66 +64,66 @@
     },
     {
       "name": "flat noodles",
-      "category": "Noodles"
+      "category": "noodles"
     },
     {
       "name": "ginger lemongrass paste",
-      "category": "Sauce"
+      "category": "sauce"
     },
     {
       "name": "Southeast Asian Spice Blend",
-      "category": "Spices"
+      "category": "spices"
     },
     {
       "name": "oyster sauce",
-      "category": "Sauce"
+      "category": "sauce"
     },
     {
       "name": "sweet potato",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "dukkah"
     },
     {
       "name": "flaked almonds",
-      "category": "Dry-fruits"
+      "category": "dry-fruits"
     },
     {
       "name": "mint",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "Greek-style yoghurt",
-      "category": "Dairy"
+      "category": "dairy"
     },
     {
       "name": "lemon",
-      "category": "Veggies"
+      "category": "veggies"
     },
     {
       "name": "long red chilli",
-      "category": "Spices"
+      "category": "spices"
     },
     {
       "name": "olive oil",
-      "category": "Oil"
+      "category": "oil"
     },
     {
       "name": "honey",
-      "category": "Honey"
+      "category": "honey"
     },
     {
       "name": "soy sauce",
-      "category": "Sauce"
+      "category": "sauce"
     },
     {
       "name": "brown sugar",
-      "category": "Sugar"
+      "category": "sugar"
     },
     {
       "name": "water",
-      "category": "Water"
+      "category": "water"
     }
   ],
   "recipes": [

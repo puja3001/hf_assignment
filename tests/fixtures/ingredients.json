@@ -1,0 +1,12 @@
+{
+  "Ingredient": {
+      "name": "clove"
+  },
+  "RecipeIngredient": [{
+      "isDeliverable": "true",
+      "ingredientId": 1,
+      "recipeId": 1,
+      "quantity": "2 clove",
+      "servesFour": "false"
+    }]
+}

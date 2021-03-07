@@ -1,0 +1,576 @@
+{
+  "category": [
+    {
+      "name": "Meat & Veggies"
+    },
+    {
+      "name": "Veggie"
+    },
+    {
+      "name": "Family-Friendly"
+    },
+    {
+      "name": "Calorie Smart"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "Onions",
+      "category": "Veggies"
+    },
+    {
+      "name": "garlic",
+      "category": "Veggies"
+    },
+    {
+      "name": "carrot",
+      "category": "Veggies"
+    },
+    {
+      "name": "makrut lime leaves",
+      "category": "Veggies"
+    },
+    {
+      "name": "Asian greens",
+      "category": "Veggies"
+    },
+    {
+      "name": "coconut milk",
+      "category": "Dairy"
+    },
+    {
+      "name": "coriander",
+      "category": "Veggies"
+    },
+    {
+      "name": "udon noodles",
+      "category": "Noodles"
+    },
+    {
+      "name": "capsicum",
+      "category": "Veggies"
+    },
+    {
+      "name": "mint leaves",
+      "category": "Veggies"
+    },
+    {
+      "name": "lime",
+      "category": "Veggies"
+    },
+    {
+      "name": "chicken thighs",
+      "category": "meat"
+    },
+    {
+      "name": "flat noodles",
+      "category": "Noodles"
+    },
+    {
+      "name": "ginger lemongrass paste",
+      "category": "Sauce"
+    },
+    {
+      "name": "Southeast Asian Spice Blend",
+      "category": "Spices"
+    },
+    {
+      "name": "oyster sauce",
+      "category": "Sauce"
+    },
+    {
+      "name": "sweet potato",
+      "category": "Veggies"
+    },
+    {
+      "name": "dukkah"
+    },
+    {
+      "name": "flaked almonds",
+      "category": "Dry-fruits"
+    },
+    {
+      "name": "mint",
+      "category": "Veggies"
+    },
+    {
+      "name": "Greek-style yoghurt",
+      "category": "Dairy"
+    },
+    {
+      "name": "lemon",
+      "category": "Veggies"
+    },
+    {
+      "name": "long red chilli",
+      "category": "Spices"
+    },
+    {
+      "name": "olive oil",
+      "category": "Oil"
+    },
+    {
+      "name": "honey",
+      "category": "Honey"
+    },
+    {
+      "name": "soy sauce",
+      "category": "Sauce"
+    },
+    {
+      "name": "brown sugar",
+      "category": "Sugar"
+    },
+    {
+      "name": "water",
+      "category": "Water"
+    }
+  ],
+  "recipes": [
+    {
+      "name": "Southeast Asian Chicken Coconut Soup with Makrut Lime & Noodles",
+      "description": "This magic recipe will fill your home with fragrant spices and transport you to Southeast Asia. From the spiced coconut soup base to the tender chicken pieces and moreish noodles, every mouthful will have you feeling good inside and out",
+      "categoryId": 1,
+      "tags": "",
+      "prepTime": "35 minutes",
+      "difficultyLevel": "Easy",
+      "allergens": "Gluten,Soy,Peanuts"
+    },
+    {
+      "name": "Saucy Coconut & Chicken Noodles with Lemongrass & Ginger",
+      "description": "We’re excited about these noodle bowls that have a kind of laksa-inspired touch to them. Creamy and zesty, you’ll love how each mouthful is bursting with flavour!",
+      "categoryId": 3,
+      "tags": "Family Friendly",
+      "prepTime": "45 minutes",
+      "difficultyLevel": "Easy",
+      "allergens": "Gluten,Soy,Molluscs"
+    },
+    {
+      "name": "Dukkah Roasted Sweet Potato with Lemon Yoghurt & Mint",
+      "description": "This side dish will be sure to steal the main show tonight! Layer with a base of lemon yoghurt, add dukkah roasted sweet potato and onion and top with fresh mint and flaked almonds for one show-stopping combo.",
+      "categoryId": 2,
+      "tags": "Naturally Gluten-Free, Not Suitable for Coeliacs",
+      "prepTime": "30 minutes",
+      "difficultyLevel": "Easy",
+      "allergens": "Sesame,Tree Nuts,Milk"
+    }
+  ],
+  "recipe_nutritional_values": [
+    {
+      "energy": "4316 KJ",
+      "fat": "53.5 g",
+      "saturates": "27.6 g",
+      "carbohydrates": "57.3 g",
+      "sugar": "20.3 g",
+      "fibre": "0 g",
+      "protein": "62.4 g",
+      "sodium": "1702 mg",
+      "recipeId": 1
+    },
+    {
+      "energy": "3097 KJ",
+      "fat": "34.3 g",
+      "saturates": "14.1 g",
+      "carbohydrates": "57.5 g",
+      "sugar": "14.9 g",
+      "fibre": "0 g",
+      "protein": "44.1 g",
+      "sodium": "1949 mg",
+      "recipeId": 2
+    },
+    {
+      "energy": "1864 KJ",
+      "fat": "16.1 g",
+      "saturates": "3 g",
+      "carbohydrates": "55.2 g",
+      "sugar": "29.1 g",
+      "fibre": "0 g",
+      "protein": "13.2 g",
+      "sodium": "1949 mg",
+      "recipeId": 3
+    }
+  ],
+  "recipe_steps": [
+    {
+      "recipeId": 1,
+      "stepNo": 1,
+      "description": "Finely chop the garlic. De-stem and very finely slice the makrut lime leaves. Slice the carrot (unpeeled) into thin batons. Thinly slice the capsicum. Roughly chop the Asian greens. Roughly chop the coriander."
+    },
+    {
+      "recipeId": 1,
+      "stepNo": 2,
+      "description": "Thinly slice the chicken tenderloins into 1cm strips and season generously with salt and pepper. In a large frying pan, heat a drizzle of olive oil over a medium-high heat. When the oil is hot, cook the chicken until browned and cooked through, 5-6 minutes. Transfer to a plate. TIP: Chicken is cooked through when it's no longer pink in the middle."
+    },
+    {
+      "recipeId": 1,
+      "stepNo": 3,
+      "description": "Return the frying pan to a medium-high heat with a drizzle of olive oil. Add the carrot and red capsicum and cook, tossing, until just softened, 3-4 minutes. Add another drizzle of olive oil with the Southeast Asian spice blend (see ingredients), garlic and makrut lime and cook until fragrant, 1 minute."
+    },
+    {
+      "recipeId": 1,
+      "stepNo": 4,
+      "description": "Add the coconut milk, water, soy sauce and brown sugar and stir to combine. Bring to a boil."
+    },
+    {
+      "recipeId": 1,
+      "stepNo": 5,
+      "description": "Add the Asian greens and the udon noodles to the broth and stir to combine. Cook, stirring to separate the noodles, until heated though and the greens have wilted, 2-3 minutes. Add the chicken and any resting juices to the pan and stir until heated through, 1 minute. Season to taste."
+    },
+    {
+      "recipeId": 1,
+      "stepNo": 6,
+      "description": "Roughly chop the coriander. Divide the noodles, veggies and chicken between bowls. Spoon over the chicken coconut soup and top with the coriander and crushed peanuts."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 1,
+      "description": "Bring a medium saucepan of water to the boil. Finely chop the garlic. Roughly chop the Asian greens. Thinly slice the carrot (unpeeled) into half-moons. Zest the lime to get a generous pinch and cut into wedges. Cut the chicken thigh into 2cm chunks."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 2,
+      "description": "Heat a large frying pan over a high heat with a drizzle of olive oil. Cook the chicken until browned and cooked through, 3-5 minutes. Transfer to a large bowl. TIP: Chicken is cooked through when it's no longer pink inside."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 3,
+      "description": "Cook the flat noodles in the boiling water until softened, 2 minutes. Drain and add to the bowl with the chicken."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 4,
+      "description": "Return the frying pan to a medium-high heat with a drizzle of olive oil. Add the carrot and cook until softened, 4-5 minutes. Add the garlic, soy sauce, ginger lemongrass paste and Southeast Asian spice blend (see ingredients) and cook until fragrant, 1 minute."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 5,
+      "description": "Add the coconut milk, oyster sauce, brown sugar, lime zest and a generous squeeze of lime juice to the pan. Stir to combine and cook until slightly thickened, 2-3 minutes. Add the Asian greens, noodles and chicken and toss until the greens have wilted, 2 minutes."
+    },
+    {
+      "recipeId": 2,
+      "stepNo": 6,
+      "description": "Divide the saucy coconut and chicken noodles between bowls. Serve with any remaining lime wedges."
+    },
+    {
+      "recipeId": 3,
+      "stepNo": 1,
+      "description": "Preheat the oven to 220°C/200°C fan-forced. Cut the sweet potato (unpeeled) into wedges. Cut the red onion into 2cm wedges. Place the sweet potato and onion on an oven tray lined with baking paper. Drizzle with olive oil and season with salt and pepper. Toss to coat and sprinkle with the dukkah. Roast until tender, 25-30 minutes. TIP: Don’t worry if your onion gets a little charred during cooking. It adds to the flavour!"
+    },
+    {
+      "recipeId": 3,
+      "stepNo": 2,
+      "description": "While the veggies are roasting, heat a small frying pan over a medium-high heat. Add the flaked almonds and toast until golden, 2-3 minutes. Transfer to a plate and set aside."
+    },
+    {
+      "recipeId": 3,
+      "stepNo": 3,
+      "description": "When the veggies have 5 minutes remaining, slice the lemon in half. Pick and roughly chop the mint leaves. Thinly slice the long red chilli (if using). In a small bowl combine the Greek yoghurt, a drizzle of olive oil and a generous squeeze of lemon juice. Season to taste.TIP: Add more or less lemon juice to taste."
+    },
+    {
+      "recipeId": 3,
+      "stepNo": 4,
+      "description": "Spread the lemon yoghurt over a serving plate. Top with the dukkah roasted sweet potato and onion. Drizzle with the honey. Garnish with the flaked almonds, mint and chilli (if using)."
+    }
+  ],
+  "recipe_ingredients": [
+    {
+      "recipeId": 1,
+      "ingredientId": 2,
+      "quantity": "2 clove",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 4,
+      "quantity": "2 leaves",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 3,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 9,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 5,
+      "quantity": "1 bunch",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 12,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 15,
+      "quantity": "1.5 sachet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 6,
+      "quantity": "1 tin",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 8,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 7,
+      "quantity": "1 bag",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 24,
+      "quantity": "",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 26,
+      "quantity": "2 tsp",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 27,
+      "quantity": "2 tsp",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 1,
+      "ingredientId": 28,
+      "quantity": "1.5 cup",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 2,
+      "quantity": "2 clove",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 5,
+      "quantity": "1 bunch",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 15,
+      "quantity": "1/2 sachet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 3,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 11,
+      "quantity": "1/2",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 12,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 13,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 14,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 6,
+      "quantity": "1 tin",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 16,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 24,
+      "quantity": "",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 26,
+      "quantity": "2 tsp",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 27,
+      "quantity": "1 tsp",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 1,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 17,
+      "quantity": "3",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 18,
+      "quantity": "1 sachet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 19,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 20,
+      "quantity": "1 bunch",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 22,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 23,
+      "quantity": "1",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 21,
+      "quantity": "1 packet",
+      "servesFour": false,
+      "isDeliverable": true
+    },
+    {
+      "recipeId": 3,
+      "ingredientId": 24,
+      "quantity": "",
+      "servesFour": false,
+      "isDeliverable": false
+    },
+    {
+      "recipeId": 2,
+      "ingredientId": 25,
+      "quantity": "1 tsp",
+      "servesFour": false,
+      "isDeliverable": false
+    }
+  ],
+  "weekly_menu": [
+    {
+      "weekName": "2021-W11",
+      "categoryId": 1,
+      "weekStartDate": "2021-03-13",
+      "availableRecipes": "1,2"
+    },
+    {
+      "weekName": "2021-W11",
+      "categoryId": 3,
+      "weekStartDate": "2021-03-13",
+      "availableRecipes": "2,3"
+    },
+    {
+      "weekName": "2021-W11",
+      "categoryId": 2,
+      "weekStartDate": "2021-03-13",
+      "availableRecipes": "3"
+    }
+  ],
+  "user_reviews": [
+    {
+      "menuId": 1,
+      "recipeId": 1,
+      "comments": "Good Menu. Keep it up",
+      "ratings": 4
+    },
+    {
+      "menuId": 2,
+      "recipeId": 3,
+      "comments": "very easy recipe, taste well.",
+      "ratings": 5
+    },
+    {
+      "menuId": 3,
+      "recipeId": 3,
+      "comments": "Not upo mark",
+      "ratings": 3
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+default:
+  apiKey: zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ
+  max_no_of_recipes: 3
+
+dev:
+  apiKey: zL54Dg1UF1I0iJO6Y9QS0lC2aezLAhkQ
+  max_no_of_recipes: 3
+  db_connection:
+      database: 'postgres'
+      user: 'pujaagarwal'
+      password: ''
+      host: 'localhost'
+
+test:
+  apiKey: test
+  max_no_of_recipes: 1

@@ -1,0 +1,13 @@
+{
+  "RecipeNutritionalValue": {
+      "recipeId": 1,
+      "carbohydrates": "57.3 g",
+      "energy": "4316 KJ",
+      "fat": "53.5 g",
+      "fibre": "0 g",
+      "protein": "62.4 g",
+      "saturates": "27.6 g",
+      "sodium": "1702 mg",
+      "sugar": "20.3 g"
+    }
+}

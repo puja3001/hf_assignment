@@ -1,0 +1,8 @@
+Flask==1.1.2
+flask-restplus==0.13.0
+peewee==3.14.2
+psycopg2-binary==2.8.6
+psycopg2==2.7
+Werkzeug==0.16.1
+flask-httpauth==4.2.0
+PyYAML==5.4.1

@@ -1,0 +1,19 @@
+{
+  "RecipeSteps": [
+    {
+      "recipeId": 1,
+      "description": "Finely chop the garlic. De-stem and very finely slice the makrut lime leaves. Slice the carrot (unpeeled) into thin batons. Thinly slice the capsicum. Roughly chop the Asian greens. Roughly chop the coriander.",
+      "stepNo": 1
+    },
+    {
+      "recipeId": 1,
+      "description": "Thinly slice the chicken tenderloins into 1cm strips and season generously with salt and pepper. In a large frying pan, heat a drizzle of olive oil over a medium-high heat. When the oil is hot, cook the chicken until browned and cooked through, 5-6 minutes. Transfer to a plate. TIP: Chicken is cooked through when it's no longer pink in the middle.",
+      "stepNo": 2
+    },
+    {
+      "recipeId": 1,
+      "description": "Return the frying pan to a medium-high heat with a drizzle of olive oil. Add the carrot and red capsicum and cook, tossing, until just softened, 3-4 minutes. Add another drizzle of olive oil with the Southeast Asian spice blend (see ingredients), garlic and makrut lime and cook until fragrant, 1 minute.",
+      "stepNo": 3
+    }
+    ]
+}

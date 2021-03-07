@@ -1,47 +1,44 @@
 Weekly Menu Manager
 ====================================
 
-Weekly-Menu manager is single point of contact for all notifications registrations and notifications subscriptions.
-That means it helps user/device level control and business flow level control.
+Weekly-Menu manager is the backend API service to manage all operations related to creating, updating, deleting & managing weekly menus.
 
-
-Data flow:
-===========
-
-1. Use has to register device by using user-subscriptions in order for AWS pinpoint to push the messages to Notification network(for mobile), email hosts(email), websocket(socketio). This gives high level control(user / device level)
-
-2.  User can control the business flows using businessflow subscriptions.This means suppose you want to subscribe to FEEDS on your mobile device, from your device you can enable/disable a particular feed.This is very finer control.for eg, if usre wants to receive feed1, feed2,feed3 but not feed4.User can just enable feed1, feed2,feed3 and disable feed4.
-
-Concepts:
+Data Models:
 =========
-ALl the APIs are primarily have below concepts:
 
-1. **user_id**: Either it can be passed as parameter and also can be made available from JWT token
+1. **category**: Category defines the categorization of the weekly menu like 'veggies', 'vegan', etc.
+2. **weeklymenus**: A menu created weekly for each category consisting of x recipes.
+3. **ingredients**: It defines various ingredients used across recipes.
+4. **recipe**: It defines a recipe.
+5. **recipe ingredients**: It defines the relationship between recipes and ingredients (the ingredients required to create a recipe).
+6. **recipe nutritional values**: It defines the nutritional values like energy, fats, etch associated with a recipe.
+4. **recipe steps**: This illustrates the steps required to create a recipe.
+5. **user reviews**:  This describes the reviews submitted by the user for a menu/recipe.
 
-2. **token_id**: It is uniquely identifiable with user,for eg, can be device token, email, webtoken, mobile num
-
-3. **business_flow**: Flow is nothing but products/features. Primarily we have we have 3 business flows **"feeds", "personal_folders", "peak_alerts"**.
-4. **flow_id**: This help is finer control of subscribing/unsubscribing to a flow. eg : save_search_id
-5. **type**:  We support **"mobile", "email", "web", "sms"**
-6. **subtype**: We support **"android", "ios"** for mobile and for the rest subtype is defaulted to type.
-
+![Alt text](erd.png?raw=true "ERD for Weekly Menu Manager")
 
 API design:
 ===========
 Endpoints and its major responsibilities below.
-1. User subscriptions
-    - registering device
-    - unregistering device
-2. Business flows
-    - enabling a particular flow id under flow
-    - disabling a particular flow id under flow
-3. Templates
-    - customized templates for a token_id, type and subtype combinations
-    - For eg : This may not be applicable for mobile, but for email, you can store whole email template here.
-4. Notification logs
-    - This is to log all the notifications sent
-5. Actions
-     - It will get all enabled user subscriptions and templates
+1. Recipes
+    /api/v1/recipes/create - creating & updating recipe
+    /api/v1/recipes/delete/{id} - deleting recipe by id
+    /api/v1/recipes/list/{categoryId} - listing all recipes by category
+2. Ingredients
+    /api/v1/ingredients/create - creating ingredient
+    /api/v1/ingredients/update - updating ingredient
+    /api/v1/ingredients/delete/{id} - deleting ingredient by id
+    /api/v1/ingredients/list/{category} - listing all ingredients by category name
+3. WeeklyMenus
+    /api/v1/weeklymenus/create - creating weekly menu
+    /api/v1/weeklymenus/update - updating weekly menu
+    /api/v1/weeklymenus/delete/{id} - deleting weekly menu by id
+    /api/v1/weeklymenus/list/{categoryId} - listing all weekly menus by category
+4. User Reviews
+    /api/v1/reviews/create - creating and updating review
+    /api/v1/reviews/delete/{id} - deleting review by id
+    /api/v1/reviews/menu/{menuId} - listing all reviews for a menu
+    /api/v1/reviews/recipe/{recipeId} - listing all reviews for a recipe
 
 To run locally:
 
@@ -58,5 +55,8 @@ Or with docker:
 2. docker run -p 8080:8080 -e ENV=dev weekly-menu-manager
 ```
 
-Unit testing:
+To run tests:
 ==============
+```
+Run -> sh run_test.sh
+```

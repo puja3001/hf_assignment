@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_restplus import abort
+
+from config import logger
 from errors import RecipeNotFound
 from api.weeklymenu.service import WeeklyMenuService
 
@@ -13,6 +15,7 @@ def get_ingredient_list_by_category(categoryId):
         values = service.get_weeklymenu_list_by_category(categoryId)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -22,6 +25,7 @@ def get_weekly_menu(id):
         values = service.get_weekly_menu(id)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -32,6 +36,7 @@ def create_weekly_menu():
         values = service.create_weekly_menu(data)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -42,10 +47,10 @@ def update_weekly_menu():
         values = service.update_weekly_menu(data)
         return jsonify(values)
     except RecipeNotFound as ex:
-        print(str(ex))
+        logger.error("Recipe not found, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, str(ex))
     except Exception as ex:
-        print(str(ex))
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -55,5 +60,5 @@ def delete_weekly_menu(id):
         values = service.delete_weekly_menu(id)
         return jsonify(values)
     except Exception as ex:
-        print(str(ex))
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))

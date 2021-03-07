@@ -9,9 +9,8 @@ from models.models import WeeklyMenuModel, Dict2Class
 from utils import dateconverter
 from config import config
 
+
 class WeeklyMenuService:
-
-
     MAX_RECIPES_PER_MENU = config['max_no_of_recipes']
 
     def __init__(self, **kwargs):
@@ -28,14 +27,14 @@ class WeeklyMenuService:
         return response
 
     def get_weekly_menu(self, menuId):
-        query = WeeklyMenu.select(WeeklyMenu, Category.name.alias('category')).join(Category).where(WeeklyMenu.menuId == menuId).namedtuples()
+        query = WeeklyMenu.select(WeeklyMenu, Category.name.alias('category')).join(Category).where(
+            WeeklyMenu.menuId == menuId).namedtuples()
         response = {}
         for row in query:
             response = row._asdict()
         response = json.loads(json.dumps(response, default=dateconverter))
         response['recipes'] = self.fetch_menu_schedules(response)
         return json.loads(json.dumps(response))
-
 
     def fetch_menu_schedules(self, menu: WeeklyMenuModel):
         recipes = []
@@ -49,22 +48,26 @@ class WeeklyMenuService:
         week_start_date = datetime.datetime.strptime(payload.weekStartDate, '%Y-%m-%d')
         week_name = str(week_start_date.year) + "-W" + str(week_start_date.isocalendar()[1])
 
-        #fetching prevous week recipes
+        # fetching previous week recipes
         last_week_start = week_start_date - datetime.timedelta(days=7)
-        query = WeeklyMenu.select().where(WeeklyMenu.weekStartDate == last_week_start and WeeklyMenu.categoryId == payload.categoryId).namedtuples()
+        query = WeeklyMenu.select().where(
+            WeeklyMenu.weekStartDate == last_week_start and WeeklyMenu.categoryId == payload.categoryId).namedtuples()
         previous_week_menu = {}
         for row in query:
             previous_week_menu = row._asdict()
         previous_week_recipes = previous_week_menu['availableRecipes'].split(",")
 
-        #assigning random x recipes to current menu
-        recipes = Recipes.select(Recipes.recipeId).where(Recipes.recipeId.not_in(previous_week_recipes)).order_by(fn.Random()).limit(self.MAX_RECIPES_PER_MENU)
+        # assigning random x recipes to current menu from given category and which were not in previous week
+        recipes = Recipes.select(Recipes.recipeId).where(
+            Recipes.recipeId.not_in(previous_week_recipes and Recipes.categoryId == payload.categoryId)) \
+            .order_by(fn.Random()).limit(self.MAX_RECIPES_PER_MENU)
         available_recipes = []
         for recipe in recipes:
-           available_recipes.append(str(recipe.recipeId))
+            available_recipes.append(str(recipe.recipeId))
         available_recipes = ",".join(available_recipes)
-        weeklyMenu = WeeklyMenu(**{"categoryId": payload.categoryId, "weekName": week_name, "weekStartDate": week_start_date,
-                             "availableRecipes": available_recipes})
+        weeklyMenu = WeeklyMenu(
+            **{"categoryId": payload.categoryId, "weekName": week_name, "weekStartDate": week_start_date,
+               "availableRecipes": available_recipes})
         weeklyMenu.save()
         return {
             "message": "Successfully created weekly menu",
@@ -79,7 +82,8 @@ class WeeklyMenuService:
         if recipes < len(available_recipes):
             raise RecipeNotFound("Unable to update menu as some recipes are missing in database");
 
-        updated = WeeklyMenu.update(availableRecipes=payload.availableRecipes).where(WeeklyMenu.menuId == payload.menuId).execute()
+        updated = WeeklyMenu.update(availableRecipes=payload.availableRecipes).where(
+            WeeklyMenu.menuId == payload.menuId).execute()
         return {
             "message": "Successfully updated weekly menu",
         }
@@ -90,6 +94,3 @@ class WeeklyMenuService:
             "message": "Successfully deleted weekly menu",
             "menuId": menuId
         }
-
-
-

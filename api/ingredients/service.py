@@ -24,7 +24,7 @@ class IngredientService:
     def update_ingredient(self, payload: IngredientModel):
         recipes = RecipeIngredients.select().where(RecipeIngredients.ingredientId == payload['ingredientId']).count()
         if recipes > 0:
-            raise RecipeBeingUsed("Cannot update ingredient as its been referenced in" + recipes + "recipes")
+            raise RecipeBeingUsed("Cannot update ingredient as its been referenced in {0} recipes.".format(recipes))
 
         ingredient = Ingredients(**payload).save()
         return {
@@ -35,7 +35,7 @@ class IngredientService:
     def delete_ingredient(self, id):
         recipes = RecipeIngredients.select().where(RecipeIngredients.ingredientId == id).count()
         if recipes > 0:
-            raise RecipeBeingUsed("Cannot delete ingredient as its been referenced in" + recipes + "recipes")
+            raise RecipeBeingUsed("Cannot delete ingredient as its been referenced in {0} recipes".format(recipes))
         Ingredients.delete().where(Ingredients.ingredientId == id).execute()
         return {
             "message": "Successfully deleted ingredient",

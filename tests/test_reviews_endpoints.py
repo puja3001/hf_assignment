@@ -6,7 +6,6 @@ from tests.base import setup_db, clean_db
 
 
 class TestUSerReviewClass:
-
     URL_PREFIX = '/api/v1/reviews'
 
     @classmethod
@@ -18,35 +17,34 @@ class TestUSerReviewClass:
         clean_db()
 
     def test_get_reviews_for_menu(self, app, client):
-        res = client.get(self.URL_PREFIX + '/menu/1')
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/menu/1'))
         assert res.status_code == 401
 
         headers = {'x-api-key': 'test'}
-        res = client.get(self.URL_PREFIX + '/menu/1', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/menu/1'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 1
 
-        res = client.get(self.URL_PREFIX + '/menu/4', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/menu/4'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 0
 
     def test_get_reviews_for_recipe(self, app, client):
-        res = client.get(self.URL_PREFIX + '/recipe/3')
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/recipe/3'))
         assert res.status_code == 401
 
         headers = {'x-api-key': 'test'}
-        res = client.get(self.URL_PREFIX + '/recipe/3', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/recipe/3'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 2
 
-        res = client.get(self.URL_PREFIX + '/recipe/1', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/recipe/1'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 0
-
 
     def test_create_review(self, app, client):
         data = {
@@ -56,13 +54,13 @@ class TestUSerReviewClass:
         }
 
         headers = {'x-api-key': 'test'}
-        res = client.post(self.URL_PREFIX + '/create', mimetype="application/json", data=json.dumps(data), headers=headers)
+        res = client.post("{0}{1}".format(self.URL_PREFIX, '/create'), mimetype="application/json",
+                          data=json.dumps(data), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert response["message"] == "Successfully added review"
         reviews = UserReviews.select().where(UserReviews.reviewId == 1).count()
         assert reviews > 0
-
 
     def test_update_review(self, app, client):
         data = {
@@ -73,7 +71,8 @@ class TestUSerReviewClass:
         }
 
         headers = {'x-api-key': 'test'}
-        res = client.put(self.URL_PREFIX + '/create', mimetype="application/json", data=json.dumps(data), headers=headers)
+        res = client.put("{0}{1}".format(self.URL_PREFIX, '/create'), mimetype="application/json",
+                         data=json.dumps(data), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert response["message"] == "Successfully added review"
@@ -83,3 +82,13 @@ class TestUSerReviewClass:
         assert reviews > 0
         assert review.rating == 5
         assert review.comments == "Fantastic recipe"
+
+    def test_delete_review(self, app, client):
+            headers = {'x-api-key': 'test'}
+            res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
+            response = res.get_json()
+            assert res.status_code == 200
+            assert response["message"] == "Successfully deleted review"
+
+            reviews = UserReviews.select().where(UserReviews.reviewId == 1).count()
+            assert reviews == 0

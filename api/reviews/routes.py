@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_restplus import abort
 
 from api.reviews.service import ReviewService
+from config import logger
 
 rvs = Blueprint(name="review", import_name=__name__)
 service = ReviewService()
@@ -13,7 +14,7 @@ def get_reviews_for_menu(id):
         values = service.get_reviews_for_menu(id)
         return jsonify(values)
     except Exception as ex:
-        print(str(ex))
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -23,6 +24,7 @@ def get_reviews_for_recipe(id):
         values = service.get_reviews_for_recipe(id)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -33,7 +35,7 @@ def add_review():
         values = service.add_review(data)
         return jsonify(values)
     except Exception as ex:
-        print(str(ex))
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
 
 
@@ -43,4 +45,5 @@ def delete_review(id):
         values = service.delete_review(id)
         return jsonify(values)
     except Exception as ex:
+        logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))

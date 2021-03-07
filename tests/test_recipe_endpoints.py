@@ -5,6 +5,7 @@ from tests.base import setup_db, clean_db
 
 
 class TestRecipeClass:
+    URL_PREFIX = '/api/v1/recipes'
 
     @classmethod
     def setup_class(self):
@@ -15,18 +16,18 @@ class TestRecipeClass:
         clean_db()
 
     def test_get_recipe_list_by_category(self, app, client):
-        res = client.get('/api/v1/recipes/list/1')
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'))
         assert res.status_code == 401
 
         headers = {'x-api-key': 'test'}
-        res = client.get('/api/v1/recipes/list/1', headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'), headers=headers)
         response = res.get_json()
         assert res.status_code == 200
         assert len(response) == 1
 
     def test_get_recipe(self, app, client, recipe_response):
         headers = {'x-api-key': 'test'}
-        res = client.get('/api/v1/recipes/1', mimetype="application/json", headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
 
         response = res.get_json()
         assert res.status_code == 200
@@ -34,12 +35,12 @@ class TestRecipeClass:
         assert len(response['ingredients']) == 14
         assert len(response['instructions']) == 6
 
-        res = client.get('/api/v1/recipes/39', mimetype="application/json", headers=headers)
+        res = client.get("{0}{1}".format(self.URL_PREFIX, '/78'), mimetype="application/json", headers=headers)
         assert res.status_code == 400
 
     def test_create_new_recipe(self, app, client, recipe_payload):
         headers = {'x-api-key': 'test'}
-        res = client.post('/api/v1/recipes/create', mimetype="application/json", data=json.dumps(recipe_payload),
+        res = client.post("{0}{1}".format(self.URL_PREFIX, '/create'), mimetype="application/json", data=json.dumps(recipe_payload),
                           headers=headers)
 
         response = res.get_json()
@@ -60,7 +61,7 @@ class TestRecipeClass:
 
     def test_delete_recipe(self, app, client):
         headers = {'x-api-key': 'test'}
-        res = client.delete('/api/v1/recipes/1', mimetype="application/json", headers=headers)
+        res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
 
         response = res.get_json()
         assert res.status_code == 200

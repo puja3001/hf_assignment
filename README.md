@@ -61,5 +61,7 @@ To run tests:
 1. Python version 3.7+
 2. pip3
 ```
-Run -> sh run_tests.sh
+- Navigate to the root folder of the project on the terminal
+- Run -> sh scripts/activate.sh
+- Once the venv is activated, Run -> sh scripts/run_tests.sh
 ```

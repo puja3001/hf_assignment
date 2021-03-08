@@ -17,26 +17,41 @@ class WeeklyMenuService:
         pass
 
     def get_weeklymenu_list_by_category(self, categoryId):
+        '''
+        List all weekly mneus by categoryId
+        :param categoryId:
+        :return:
+        '''
         query = WeeklyMenu.select().where(WeeklyMenu.categoryId == categoryId).namedtuples()
         response = []
         for row in query:
             menu = row._asdict()
-            menu['recipes'] = self.fetch_menu_schedules(menu)
+            menu['recipes'] = self.fetch_menu_recipes(menu)
             response.append(menu)
 
         return response
 
     def get_weekly_menu(self, menuId):
+        '''
+        Retrieves a menu by id
+        :param menuId:
+        :return:
+        '''
         query = WeeklyMenu.select(WeeklyMenu, Category.name.alias('category')).join(Category).where(
             WeeklyMenu.menuId == menuId).namedtuples()
         response = {}
         for row in query:
             response = row._asdict()
         response = json.loads(json.dumps(response, default=dateconverter))
-        response['recipes'] = self.fetch_menu_schedules(response)
+        response['recipes'] = self.fetch_menu_recipes(response)
         return json.loads(json.dumps(response))
 
-    def fetch_menu_schedules(self, menu: WeeklyMenuModel):
+    def fetch_menu_recipes(self, menu: WeeklyMenuModel):
+        '''
+        Fetch menu recipes
+        :param menu:
+        :return:
+        '''
         recipes = []
         menu_recipes = Recipes.select().where(Recipes.recipeId.in_(menu['availableRecipes'].split(","))).namedtuples()
         for recipe in menu_recipes:
@@ -44,6 +59,11 @@ class WeeklyMenuService:
         return recipes
 
     def create_weekly_menu(self, payload: WeeklyMenuModel):
+        '''
+        Ceates a menu
+        :param payload:
+        :return:
+        '''
         payload = Dict2Class(payload)
         week_start_date = datetime.datetime.strptime(payload.weekStartDate, '%Y-%m-%d')
         week_name = str(week_start_date.year) + "-W" + str(week_start_date.isocalendar()[1])
@@ -76,6 +96,11 @@ class WeeklyMenuService:
         }
 
     def update_weekly_menu(self, payload: WeeklyMenuModel):
+        '''
+        Updates a menu
+        :param payload:
+        :return:
+        '''
         payload = Dict2Class(payload)
         available_recipes = payload.availableRecipes.split(",")
         recipes = Recipes.select(Recipes.recipeId).where(Recipes.recipeId.in_(available_recipes)).count()
@@ -89,6 +114,11 @@ class WeeklyMenuService:
         }
 
     def delete_weekly_menu(self, menuId):
+        '''
+        Deletes a menu
+        :param menuId:
+        :return:
+        '''
         deleted = WeeklyMenu.delete().where(WeeklyMenu.menuId == menuId).execute()
         return {
             "message": "Successfully deleted weekly menu",

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_restplus import abort
-
+from werkzeug import Response
 from config import logger
 from errors import RecipeNotFound
 from api.weeklymenu.service import WeeklyMenuService
@@ -48,7 +48,7 @@ def update_weekly_menu():
         return jsonify(values)
     except RecipeNotFound as ex:
         logger.error("Recipe not found, request: {0}, error: {1}".format(request.full_path, str(ex)))
-        abort(400, str(ex))
+        return Response(str(ex), mimetype="text/plain", status=400)
     except Exception as ex:
         logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))

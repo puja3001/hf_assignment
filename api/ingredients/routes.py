@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_restplus import abort
-
+from werkzeug import Response
 from config import logger
 from errors import RecipeBeingUsed
 from api.ingredients.service import IngredientService
@@ -38,7 +38,7 @@ def update_ingredient():
         return jsonify(values)
     except RecipeBeingUsed as ex:
         logger.warn("Recipe in use, request: {0}, error: {1}".format(request.full_path, str(ex)))
-        abort(400, str(ex))
+        return Response(str(ex), mimetype="text/plain", status=400)
     except Exception as ex:
         logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))
@@ -51,7 +51,7 @@ def delete_recipe(id):
         return jsonify(values)
     except RecipeBeingUsed as ex:
         logger.error("Recipe in use, request: {0}, error: {1}".format(request.full_path, str(ex)))
-        abort(400, str(ex))
+        return Response(str(ex), mimetype="text/plain", status=400)
     except Exception as ex:
         logger.error("Error occurred, request: {0}, error: {1}".format(request.full_path, str(ex)))
         abort(400, "Error occurred in operation" + str(ex))

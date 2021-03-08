@@ -19,9 +19,12 @@ class TestWeeklyMenuClass:
         clean_db()
 
     def test_get_menu_by_category(self, app, client):
+
+        # test if response is returned as unauthorized if no token is passed
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'))
         assert res.status_code == 401
 
+        # test if weekly menus is listed correctly as per category id
         headers = {'x-api-key': 'test'}
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/list/1'), headers=headers)
         response = res.get_json()
@@ -34,6 +37,8 @@ class TestWeeklyMenuClass:
         assert len(response) == 0
 
     def test_create_weekly_menu(self, app, client):
+
+        # test if weekly menu is created successfully
         data = {
             "weekStartDate": "2021-03-20",
             "categoryId": 2
@@ -46,12 +51,17 @@ class TestWeeklyMenuClass:
         assert res.status_code == 200
         assert response['message'] == "Successfully created weekly menu"
         assert response['menuId'] == menu.menuId
+
+        # test if weekly menu weekname is populated correctly
         assert menu.weekName == "2021-W11"
 
+        # test if available recipes count is as per the max allowed
         available_recipes = menu.availableRecipes.split(",")
         assert len(available_recipes) == self.MAX_RECIPES_PER_MENU
 
     def test_update_weekly_menu(self, app, client):
+
+        # test if weekly menu is updated successfully
         headers = {'x-api-key': 'test'}
         data = {
             "menuId": 1,
@@ -64,6 +74,7 @@ class TestWeeklyMenuClass:
         assert response['message'] == "Successfully updated weekly menu"
         assert menu.availableRecipes.split(",") == ['1', '2', '3']
 
+        # test if weekly menu is not updated is recipe isd passed in not in recipe table
         data = {
             "menuId": '1',
             "availableRecipes": [4,5]
@@ -73,6 +84,8 @@ class TestWeeklyMenuClass:
         assert res.status_code == 400
 
     def test_delete_weeklymenu(self, app, client):
+
+        # test if weekly menu is deleted successfully
         headers = {'x-api-key': 'test'}
         res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
         assert res.status_code == 200

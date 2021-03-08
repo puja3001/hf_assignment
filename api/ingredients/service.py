@@ -8,6 +8,11 @@ class IngredientService:
         pass
 
     def get_ingredient_list_by_category(self, category):
+        '''
+        Returns list of ingredientts
+        :param category:
+        :return: list
+        '''
         query = Ingredients.select().where(Ingredients.category == category.lower()).namedtuples()
         response = []
         for row in query:
@@ -15,6 +20,11 @@ class IngredientService:
         return response
 
     def create_ingredient(self, payload: IngredientModel):
+        '''
+        Creates a ingredient
+        :param payload:
+        :return: json response
+        '''
         payload['category'] = payload['category'].lower() if payload['category'] else None
         ingredient = Ingredients.create(**payload)
         return {
@@ -23,6 +33,11 @@ class IngredientService:
         }
 
     def update_ingredient(self, payload: IngredientModel):
+        '''
+        Updates a ingredient
+        :param payload:
+        :return:
+        '''
         recipes = RecipeIngredients.select().where(RecipeIngredients.ingredientId == payload['ingredientId']).count()
         if recipes > 0:
             raise RecipeBeingUsed("Cannot update ingredient as its been referenced in {0} recipes.".format(recipes))
@@ -35,6 +50,11 @@ class IngredientService:
 
 
     def delete_ingredient(self, id):
+        '''
+        Deletes a ingredient
+        :param id:
+        :return:
+        '''
         recipes = RecipeIngredients.select().where(RecipeIngredients.ingredientId == id).count()
         if recipes > 0:
             raise RecipeBeingUsed("Cannot delete ingredient as its been referenced in {0} recipes".format(recipes))

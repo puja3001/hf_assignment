@@ -8,6 +8,12 @@ class Authentication:
         self.secret_key = config['apiKey']
 
     def __call__(self, environ, start_response):
+        '''
+        Takes a incoming request to check for secret api key
+        :param environ:
+        :param start_response:
+        :return:
+        '''
         try:
             secret_key = environ.get("HTTP_X_API_KEY")
             if not secret_key or secret_key != self.secret_key:

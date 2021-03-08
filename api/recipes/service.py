@@ -10,6 +10,11 @@ class RecipeService:
         pass
 
     def get_recipe_list_by_category(self, categoryId):
+        '''
+        List all recipes by category id
+        :param categoryId:
+        :return:
+        '''
         query = Recipes.select(Recipes, Category.name.alias('category')) \
             .join(Category).where(Recipes.categoryId == categoryId).namedtuples()
         response = []
@@ -18,6 +23,11 @@ class RecipeService:
         return response
 
     def get_recipe_by_id(self, id):
+        '''
+        Gets a recipe by id
+        :param id:
+        :return:
+        '''
         recipe_query = Recipes.select(Recipes, Category.name.alias('category')) \
             .join(Category).where(Recipes.recipeId == id).namedtuples()
         nutritional_values = RecipeNutritionalValues.select().where(
@@ -42,6 +52,11 @@ class RecipeService:
         return json.loads(json.dumps(response))
 
     def upsert_recipe(self, payload: RecipeModel):
+        '''
+        Creates or updates a recipe
+        :param payload:
+        :return:
+        '''
         try:
             payload = Dict2Class(payload)
             recipe = {
@@ -92,6 +107,11 @@ class RecipeService:
             self.delete_recipe_records(payload.recipeId)
 
     def delete_recipe(self, id):
+        '''
+        Deletes a recipe by id
+        :param id:
+        :return:
+        '''
         self.delete_recipe_records(id)
         return {
             "message": "Successfully deleted recipe",
@@ -99,6 +119,11 @@ class RecipeService:
         }
 
     def delete_recipe_records(self, id):
+        '''
+        Deletes all recipe metadata
+        :param id:
+        :return:
+        '''
         if id is not None:
             RecipeSteps.delete().where(RecipeSteps.recipeId == id).execute()
             RecipeNutritionalValues.delete().where(RecipeNutritionalValues.recipeId == id).execute()

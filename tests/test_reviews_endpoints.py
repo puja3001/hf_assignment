@@ -17,9 +17,12 @@ class TestUSerReviewClass:
         clean_db()
 
     def test_get_reviews_for_menu(self, app, client):
+
+        # test if response is returned as unauthorized if no token is passed
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/menu/1'))
         assert res.status_code == 401
 
+        # test if review is listed correctly as per menu id
         headers = {'x-api-key': 'test'}
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/menu/1'), headers=headers)
         response = res.get_json()
@@ -32,9 +35,12 @@ class TestUSerReviewClass:
         assert len(response) == 0
 
     def test_get_reviews_for_recipe(self, app, client):
+
+        # test if review is listed correctly as per recipe id
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/recipe/3'))
         assert res.status_code == 401
 
+        # test if review is listed correctly as per recipe id
         headers = {'x-api-key': 'test'}
         res = client.get("{0}{1}".format(self.URL_PREFIX, '/recipe/3'), headers=headers)
         response = res.get_json()
@@ -47,6 +53,8 @@ class TestUSerReviewClass:
         assert len(response) == 0
 
     def test_create_review(self, app, client):
+
+        # test if review is created correctly
         data = {
             "comments": "Fantastic recipe",
             "ratings": 5,
@@ -63,6 +71,8 @@ class TestUSerReviewClass:
         assert reviews > 0
 
     def test_update_review(self, app, client):
+
+        # test if review is updated correctly
         data = {
             "comments": "Fantastic recipe",
             "rating": 5,
@@ -84,11 +94,13 @@ class TestUSerReviewClass:
         assert review.comments == "Fantastic recipe"
 
     def test_delete_review(self, app, client):
-            headers = {'x-api-key': 'test'}
-            res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
-            response = res.get_json()
-            assert res.status_code == 200
-            assert response["message"] == "Successfully deleted review"
 
-            reviews = UserReviews.select().where(UserReviews.reviewId == 1).count()
-            assert reviews == 0
+        # test if review is deleted correctly
+        headers = {'x-api-key': 'test'}
+        res = client.delete("{0}{1}".format(self.URL_PREFIX, '/1'), mimetype="application/json", headers=headers)
+        response = res.get_json()
+        assert res.status_code == 200
+        assert response["message"] == "Successfully deleted review"
+
+        reviews = UserReviews.select().where(UserReviews.reviewId == 1).count()
+        assert reviews == 0
